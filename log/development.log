@@ -878,3 +878,13 @@ Started GET "/welcome/index" for 127.0.0.1 at 2019-03-27 13:46:31 +0300
 Processing by WelcomeController#index as HTML
   Rendered welcome/index.html.erb within layouts/application (0.4ms)
 Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-03-27 13:58:57 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.3ms)
+Completed 200 OK in 357ms (Views: 349.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/scaffolds.self-74b654df0fc6a7e2c082d371c492fc333946daf90235bc523f1bc9471b764464.css?body=1" for 127.0.0.1 at 2019-03-27 13:58:58 +0300
