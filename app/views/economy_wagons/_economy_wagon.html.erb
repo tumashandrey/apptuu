@@ -1,0 +1,7 @@
+<tr>
+  <td><%= economy_wagon.id %></td>
+  <td><%= economy_wagon.wagon_type %></td>
+  <td><%= link_to 'Показать', economy_wagon %></td>
+  <td><%= link_to 'Редактировать', edit_wagon_path(economy_wagon) %></td>
+  <td><%= link_to 'Удалить', economy_wagon, method: :delete, data: {confirm: 'Вы уверены?' } %></td>
+</tr>

@@ -1,0 +1,39 @@
+<%= form_for(@route) do |f| %>
+
+    <%= render 'common/errors', resource: @route %>
+
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :railway_station_ids, 'Список станций' %>
+      <%= f.collection_select :railway_station_ids, RailwayStation.all, :id, :title, {}, { multiple: true } %>
+    </div>
+
+
+    <div class="actions">
+      <%= f.submit "#{ @route.new_record? ? 'Создать' : 'Изменить' }" %>
+    </div>
+
+
+
+
+<% end %>
+
+<% unless @route.new_record? %>
+<% if @route.railway_stations %>
+    <p><strong>Порядок станций на маршруте:</strong></p>
+    <ol>
+      <% @route.railway_stations.each do |railway_station| %>
+          <%= form_tag({action: :change_station_index}, method: :patch, class: '') do %>
+              <%= hidden_field_tag(:station_id, railway_station.id) %>
+              <li><%= railway_station.title %> <span><%= text_field_tag :station_index, RailwayStationsRoute.find_by(railway_station_id: railway_station, route_id: @route).station_index %></span> <%= submit_tag 'Изменить' %> </li>
+
+          <% end %>
+      <% end %>
+    </ol>
+<% end %>
+<% end %>
+

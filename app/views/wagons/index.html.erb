@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Список вагонов</h1>
+<h2><%= link_to 'На главную',  welcome_index_path %></h2>
+<table>
+  <thead>
+  <tr>
+    <th>Id вагона</th>
+    <th>Тип</th>
+    <th colspan="3"></th>
+  </tr>
+
+  </thead>
+
+  <tbody>
+  <% @wagons.each do |wagon| %>
+      <%= render wagon %>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Добавить вагон', new_wagon_path %>

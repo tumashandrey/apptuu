@@ -1,0 +1,7 @@
+<tr>
+  <td><%= coupe_wagon.id %></td>
+  <td><%= coupe_wagon.wagon_type %></td>
+  <td><%= link_to 'Показать', coupe_wagon %></td>
+  <td><%= link_to 'Редактировать', edit_wagon_path(coupe_wagon) %></td>
+  <td><%= link_to 'Удалить', coupe_wagon, method: :delete, data: {confirm: 'Вы уверены?' } %></td>
+</tr>

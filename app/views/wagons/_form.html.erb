@@ -1,0 +1,44 @@
+<%= form_for(@wagon) do |f| %>
+    <%= render 'common/errors', resource: @wagon %>
+
+    <div class="field">
+      <strong><%= f.label :type, 'Тип вагона:' %></strong>
+      <%= f.select :type, [['Плацкартный', EconomyWagon], ['Купейный', CoupeWagon],
+                                 ['СВ-Вагон', LuxuryWagon], ['Вагон c сидячими местами', SeatingWagon]] %>
+
+    </div>
+
+    <div class="field">
+      <strong><%= f.label :train, 'Прикрепить вагон к поезду:' %></strong>
+      <%= f.collection_select :train_id, Train.all, :id, :number %>
+    </div>
+
+    <div class="field">
+      <strong><%= f.label :top_seats, 'Количество верхних мест' %></strong>
+      <%= f.text_field :top_seats %>
+    </div>
+
+    <div class="field">
+      <strong><%= f.label :lower_seats, 'Количество нижних мест' %></strong>
+      <%= f.text_field :lower_seats %>
+    </div>
+
+    <div class="field">
+      <strong><%= f.label :side_top_seats, 'Количество верхних боковых мест' %></strong>
+      <%= f.text_field :side_top_seats %>
+    </div>
+
+    <div class="field">
+      <strong><%= f.label :side_bottom_seats, 'Количество нижних боковых мест' %></strong>
+      <%= f.text_field :side_bottom_seats %>
+    </div>
+
+    <div class="field">
+      <strong><%= f.label :seating, 'Количество сидячих мест' %></strong>
+      <%= f.text_field :seating %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "#{ @wagon.new_record? ? 'Создать' : 'Изменить' }" %>
+    </div>
+<% end %>
